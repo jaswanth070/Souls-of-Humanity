@@ -50,7 +50,7 @@
             /* Hidden by default */
             position: fixed;
             /* Stay in place */
-            z-index: 1;
+            z-index: 30;
             /* Sit on top */
             left: 0;
             top: 0;
@@ -68,15 +68,25 @@
 
         /* Modal Content/Box */
         .modal-content {
-            display:flex;
+            display: flex;
             flex-direction: column;
             background-color: #fefefe;
             margin: 15% auto;
             /* 15% from the top and centered */
-            padding: 20px;
+            padding: 0;
             border: 1px solid #888;
-            max-width:max-content;
+            max-width: max-content;
+            width: 80%;
+            /* Adjust width for larger screens */
+            position: relative;
             /* Could be more or less, depending on screen size */
+        }
+
+        .modal-content:before {
+            content: "";
+            display: block;
+            /* padding-top: 133.33%; */
+            /* Aspect ratio 3:4, adjust as needed */
         }
 
         /* The Close Button */
@@ -93,6 +103,17 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        @media (max-width: 768px) {
+        .modal-content {
+            margin: 15% 5%;
+            width: 90%; /* Adjust width for smaller screens */
+        }
+        .modal-content img {
+            width: 100%; /* Make the image fill the width of the modal */
+            height: auto; /* Maintain the aspect ratio */
+        }
+    }
     </style>
 </head>
 
@@ -119,12 +140,12 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-          <span class="close">&times;</span>
-          <!-- <div id="previewContainer" height="707" width="1000"></div> -->
-          <div id="previewContainer"></div>
+            <span class="close">&times;</span>
+            <!-- <div id="previewContainer" height="707" width="1000"></div> -->
+            <div id="previewContainer"></div>
         </div>
-      
-      </div>
+
+    </div>
 
     <section id="donation">
         <h1>Donation Receipt</h1>
