@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f1f1f1" />
+
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/x-icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="image/apple-touch-icon.webp" />
+
+    <title>Souls of Humanity | Non Profitable Organization</title>
+
+    <!-- Font Awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+    <!-- JQuery -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <!-- Waypoints -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+
+    <!-- CounterUp 2 -->
+    <script defer src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+
+    <!-- External JS -->
+    <script defer src="js/script.js"></script>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preload" href="image/hero-img.avif" as="image" fetchpriority="high" type="image/avif" />
+
+    <style>
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            display:flex;
+            flex-direction: column;
+            background-color: #fefefe;
+            margin: 15% auto;
+            /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            max-width:max-content;
+            /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Start -->
+    <header class="header">
+        <a href="#" class="logo">
+            <img src="logo-white.png" alt="Logo" height="70px" width="auto">
+        </a>
+        <div class="icons">
+            <!-- <div id="menu-btn" class="fas fa-bars menu-btn"></div> -->
+            <a href="#donate" class="fas fa-hand-holding-heart" aria-label="donate-navbar"></a>
+            <a href="#login" id="login-btn" class="fas fa-user" aria-label="login"></a>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="previewContainer"></div>
+    </div> -->
+
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <!-- <div id="previewContainer" height="707" width="1000"></div> -->
+          <div id="previewContainer"></div>
+        </div>
+      
+      </div>
+
+    <section id="donation">
+        <h1>Donation Receipt</h1>
+        <form class="col-xl-7 col-md-8 mt-5 mb-5 offset-xl-2 needs-validation" novalidate="" id="gform">
+            <div class="row">
+                <div class="col-sm-6 mb-4">
+                    <label for="name" class="form-label fs-base fc-3 fw-bold"><i
+                            class="fa-solid bi bi-person me-2"></i>Name</label>
+                    <input type="text" id="name" name="name" class="form-control form-control-lg" required=""
+                        placeholder="Donor Name" maxlength="60">
+                    <div class="invalid-feedback">Required!</div>
+                </div>
+
+                <div class="col-sm-6 mb-4">
+                    <label for="date" class="form-label fs-base fc-3 fw-bold"><i
+                            class="fa-solid bi bi bi-calendar me-2"></i>Date</label>
+                    <input type="Date" id="date" name="date" class="form-control form-control-lg" required="">
+                    <div class="invalid-feedback">Required!</div>
+                </div>
+
+                <div class="col-sm-6 mb-4">
+                    <label for="email" class="form-label fs-base fc-3 fw-bold"><i
+                            class="fa-solid bi bi-envelope-at me-2"></i>E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="example@abc.com"
+                        class="form-control form-control-lg">
+                </div>
+
+                <div class="col-sm-6 mb-4">
+                    <label for="amount" class="form-label fs-base fc-3 fw-bold"><i
+                            class="fa-solid bi bi-currency-rupee me-2"></i>Donation Amount</label>
+                    <input type="amount" id="amount" name="amount" class="form-control form-control-lg" required=""
+                        placeholder="000.00">
+                    <div class="invalid-feedback">Required!</div>
+                </div>
+
+                <div class="col-12 mb-4">
+                    <label for="address" class="form-label fs-base fc-3 fw-bold"><i
+                            class="fa-solid bi bi-pencil-square me-2"></i>Address</label>
+                    <textarea id="address" name="address" class="form-control form-control-lg" rows="2"
+                        placeholder="Locality, District" maxlength="25"></textarea>
+                </div>
+
+            </div>
+            <br>
+            <button type="button" onclick="generateImage()" class="btn btn-primary btn-lg me-3"><i
+                    class="fa-solid bi bi-piggy-bank me-2"></i>Donate</button>
+            <button type="reset" class="btn btn-primary-soft btn-lg"><i
+                    class="fa-solid bi bi-arrow-clockwise me-2"></i>Reset</button>
+        </form>
+
+
+    </section>
+
+
+
+    <!-- SwiperJS -->
+
+    <script src="generateImage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

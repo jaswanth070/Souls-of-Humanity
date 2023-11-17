@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data to Image Generator</title>
+</head>
+<body>
+  <h1>Data to Image Generator</h1>
+  <form id="dataForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required>
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+    <br>
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" required>
+    <br>
+    <label for="address">Address:</label>
+    <textarea name="address" id="address" rows="5"></textarea>
+    <br>
+
+    <button type="button" onclick="submitForm()">Generate Image and Submit Form</button>
+  </form>
+  <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdwtgvqXzmzMz7scGM6zN45F3CVjB7ru3ZTl4JkrVIBOeoFEg/viewform?embedded=true" width="640" height="989" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> -->
+  <div id="imageContainer"></div>
+
+  <script src="generateImage.js"></script>
+  <script>
+    function submitForm() {
+        // Call the generateImage function
+        generateImage();
+
+        // Get form data
+        const name = document.getElementById('name').value;
+        const date = document.getElementById('date').value;
+        const email = document.getElementById('email').value;
+        const amount = document.getElementById('amount').value;
+        const address = document.getElementById('address').value;
+
+        // Prepare form data for submission
+        const formData = new FormData();
+        formData.append("entry.1423800006", name); // Replace with the actual entry ID for "Name" field
+        formData.append("entry.159501374", date); // Replace with the actual entry ID for "Date" field
+        formData.append("entry.2122451787", email); // Replace with the actual entry ID for "Email" field
+        formData.append("entry.759498464", amount); // Replace with the actual entry ID for "Amount" field
+        formData.append("entry.276768064", address); // Replace with the actual entry ID for "Address" field
+
+        // https://docs.google.com/forms/d/e/1FAIpQLSdwtgvqXzmzMz7scGM6zN45F3CVjB7ru3ZTl4JkrVIBOeoFEg/viewform?usp=pp_url&entry.1423800006=Don0r+Name&entry.159501374=2023-12-01&entry.2122451787=example.abc.com&entry.276768064=Locality,+District&entry.759498464=0000.00
+        // Submit form data to the Google Form
+        fetch('https://docs.google.com/forms/d/e/1FAIpQLSdwtgvqXzmzMz7scGM6zN45F3CVjB7ru3ZTl4JkrVIBOeoFEg/viewform?usp=pp_url&entry.1423800006=Don0r+Name&entry.159501374=2023-12-01&entry.2122451787=example.abc.com&entry.276768064=Locality,+District&entry.759498464=0000.00', {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => {
+            if (response.ok) {
+                // Successful submission, you can do something here
+                console.log('Form submitted successfully!');
+            } else {
+                // Handle errors
+                console.error('Form submission failed!');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+</script>
+</body>
+</html>
