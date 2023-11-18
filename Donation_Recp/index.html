@@ -326,7 +326,7 @@
                     <label for="id" class="form-label fs-base fc-3 fw-bold"><i
                             class="fa-solid bi bi-hash me-2"></i>Volunteer ID</label>
                     <input type="text" id="id" name="id" class="form-control form-control-lg" 
-                        placeholder="Volunteer ID" maxlength="60">
+                        placeholder="Volunteer ID" maxlength="10" required="">
                     <div class="invalid-feedback">Required!</div>
                 </div>
 
@@ -334,28 +334,28 @@
                     <label for="vol-name" class="form-label fs-base fc-3 fw-bold"><i
                             class="fa-solid bi bi-person me-2"></i>Name</label>
                     <input type="text" id="vol-name" name="vol-name" class="form-control form-control-lg" required=""
-                        placeholder="Volunteer Name" maxlength="60">
+                        placeholder="Volunteer Name" maxlength="30">
                     <div class="invalid-feedback">Required!</div>
                 </div>
 
                 <div class="col-sm-6 mb-4">
                     <label for="dob" class="form-label fs-base fc-3 fw-bold"><i
                             class="fa-solid bi bi bi-calendar me-2"></i>Date of Birth</label>
-                    <input type="Date" id="dob" name="dob" class="form-control form-control-lg" >
+                    <input type="Date" id="dob" name="dob" class="form-control form-control-lg" required="">
                     <div class="invalid-feedback">Required!</div>
                 </div>
 
                 <div class="col-sm-6 mb-4">
                     <label for="ph" class="form-label fs-base fc-3 fw-bold"><i
                             class="fa-solid bi bi-telephone me-2"></i>Phone Number</label>
-                    <input type="text" id="ph" name="ph" placeholder="897XXXXX10" class="form-control form-control-lg"
+                    <input type="text" id="ph" name="ph" placeholder="897XXXXX10" class="form-control form-control-lg" required=""
                         >
                 </div>
 
                 <div class="col-sm-6 mb-4">
                     <label for="blood-grp" class="form-label fs-base fc-3 fw-bold"><i
                             class="fa-solid bi bi-droplet me-2" style="color: red;"></i>Blood Group</label>
-                    <select id="blood-grp" name="blood-grp" class="form-select form-select-lg" ">
+                    <select id="blood-grp" name="blood-grp" class="form-select form-select-lg" required="">
                         <option value="" selected disabled>Select Blood Group</option>
                         <option value="A+">A+</option>
                         <option value="A-">A-</option>
@@ -376,7 +376,7 @@
                     </label>
                     <div class="input-group">
                         <input type="month" id="validity" name="validity" class="form-control form-control-lg"
-                            >
+                        required="" >
                     </div>
                     <div class="invalid-feedback">Required!</div>
                 </div>
@@ -384,7 +384,7 @@
                 <div class="col-sm-6 mb-4">
                     <label for="photo" class="form-label fs-base fc-3 fw-bold"><i
                             class="fa-solid bi bi-image me-2"></i>Upload Photo</label>
-                    <input type="file" id="photo" name="photo" class="form-control form-control-lg" accept="image/*">
+                    <input type="file" id="photo" name="photo" class="form-control form-control-lg" accept="image/*" required="">
 
                 </div>
 

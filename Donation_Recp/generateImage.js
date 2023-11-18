@@ -178,12 +178,13 @@ function generateImage() {
       const downloadButton = document.createElement('button');
       downloadButton.className = 'btn btn-success btn-lg mt-3 me-3'
       downloadButton.textContent = 'Download Receipt';
+      downloadButton.type = 'button';
 
       downloadButton.innerHTML = `<i class="bi bi-arrow-down"></i> Download Receipt`
       downloadButton.addEventListener('click', function () {
         downloadLink.click(); // Simulate a click on the hidden link
-          history.replaceState({}, document.title, '/');
-          window.location.reload();
+        history.replaceState({}, document.title, '/');
+        window.location.reload();
       });
 
       const img = document.createElement('img');
