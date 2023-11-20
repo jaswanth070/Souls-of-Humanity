@@ -56,39 +56,21 @@
         integrity="sha512-bs9fAcCAeaDfA4A+NiShWR886eClUcBtqhipoY5DM60Y1V3BbVQlabthUBal5bq8Z8nnxxiyb1wfGX2n76N1Mw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <script>
+        // Check if the user is logged in
+        const isLoggedIn = localStorage.getItem('loggedIn');
+        if (!isLoggedIn) {
+            // Redirect to the login page if not logged in
+            window.location.href = 'login.html';
+        }
+    </script>
 
     <style>
-        .body {
-            display: none;
-        }
-
         footer {
-            margin-bottom: 0;
+            bottom: 0;
             text-align: center;
-        }
-
-        #loginModal {
             align-items: center;
-            /* margin-left: 90%; */
-            margin-right: auto;
         }
-
-        .login-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #fefefe;
-            padding: 5px;
-            margin-top: 25%;
-            margin-left: 25%;
-            width: 50%;
-            border-radius: 5px;
-        }
-
-        .login-box label {
-            margin: 10px;
-        }
-
 
         .modal {
             display: none;
@@ -249,7 +231,7 @@
 </head>
 
 <body>
-    <div id="loginModal" class="container">
+    <!-- <div id="loginModal" class="container">
         <div class="login-box">
             <label for="loginUsername">Username</label>
             <input type="text" id="loginUsername" name="loginUsername" required>
@@ -259,7 +241,7 @@
 
             <button class="btn btn-success mt-4 mb-4" type="button" onclick="login()">Login</button>
         </div>
-    </div>
+    </div> -->
 
     <section class="body">
 
@@ -476,45 +458,6 @@
         crossorigin="anonymous"></script>
     <!-- SwiperJS -->
     <script>
-        setFlag = 1;
-        
-        function openLoginModal() {
-            if (setFlag){
-                var loginModal = document.getElementById('loginModal');
-                loginModal.style.display = 'block';
-            }
-        }
-
-        // Close the login modal
-        function closeLoginModal() {
-            const body_sec = document.getElementsByClassName('body')[0];
-
-            var loginModal = document.getElementById('loginModal');
-            loginModal.style.display = 'none';
-            // body_sec.style.display = 'none';
-            body_sec.style.display = 'block';
-        }
-
-        // Perform login
-        function login() {
-            // Predefined username and password
-            const validUsername = 'admin';
-            const validPassword = 'password';
-
-            // Get entered username and password
-            const enteredUsername = document.getElementById('loginUsername').value;
-            const enteredPassword = document.getElementById('loginPassword').value;
-
-            // Check if entered credentials match predefined values
-            if (enteredUsername === validUsername && enteredPassword === validPassword) {
-                alert('Login successful');
-                // Redirect to the desired page or perform other actions
-                closeLoginModal();
-            } else {
-                alert('Invalid username or password');
-            }
-        }
-
         function showMenu() {
             $('#donation').hide()
             $('#id-card').hide()
@@ -533,9 +476,6 @@
             $('#donation').toggle()
         }
 
-        window.onload = function () {
-            openLoginModal();
-        }
     </script>
 
     <script>

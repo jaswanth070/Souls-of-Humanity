@@ -4,9 +4,14 @@ function generateID() {
   const id = $('#id').val();
   const volName = $('#vol-name').val();
   const dob = $('#dob').val();
+  const formattedDob = formatDate(dob);
   const ph = $('#ph').val();
   const bloodGrp = $('#blood-grp').val();
-  const validity = $('#validity').val();
+  const validityInput = $('#validity').val(); // Assuming validity is in the format 'YYYY-MM'
+  const [year, month] = validityInput.split('-');
+
+const formattedValidity = `${month}-${year}`;
+ 
   const photo = document.getElementById('croppedImage');
 
   if (form.checkValidity()) {
@@ -30,10 +35,10 @@ function generateID() {
 
       // Draw text on the image
       context.fillText(`${id}`, 310, 682);
-      context.fillText(`${dob}`, 310, 732);
+      context.fillText(`${formattedDob}`, 310, 732);
       context.fillText(`${ph}`, 310, 782);
       context.fillText(`${bloodGrp}`, 310, 832);
-      context.fillText(`${validity}`, 310, 882);
+      context.fillText(`${formattedValidity}`, 310, 882);
 
       context.font = 'bold 45px Quicksand';
       context.textAlign = 'center'; // Set text alignment to center
@@ -233,4 +238,19 @@ function generateImage() {
   else {
     alert('Please fill in all required fields.');
   }
+}
+
+
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const month = date.getMonth() + 1; // Month is zero-based
+  const year = date.getFullYear();
+
+  // Pad single-digit day and month with leading zero
+  const formattedDay = day < 10 ? '0' + day : day;
+  const formattedMonth = month < 10 ? '0' + month : month;
+
+  // Return the formatted date string
+  return formattedDay + '-' + formattedMonth + '-' + year;
 }
