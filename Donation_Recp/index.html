@@ -52,6 +52,18 @@
 
     <link rel="stylesheet" href="login.css">
 
+    <script>
+        try {
+            const isLoggedIn = localStorage.getItem('loggedIn');
+            if (isLoggedIn) {
+                // Redirect to the working page if logged in
+                window.location.href = 'working.html';
+            }
+        } catch (error) {
+            console.error('An error occurred while checking login status:', error);
+        }
+    </script>
+
     <style>
         footer {
             position: fixed;

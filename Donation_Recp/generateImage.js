@@ -65,7 +65,7 @@ const formattedValidity = `${month}-${year}`;
         // Trigger the download
         downloadLink.click();
 
-        history.replaceState({}, document.title, '/');
+        history.replaceState({}, document.title, '/working.html');
         window.location.reload();
       };
 
@@ -127,6 +127,7 @@ function generateImage() {
   const form = document.getElementById('gform')
   const name = document.getElementById('name').value;
   const date = document.getElementById('date').value;
+  const formattedDate = formatDate(date);
   const email = document.getElementById('email').value;
   const address = document.getElementById('address').value;
   const amount = document.getElementById('amount').value;
@@ -167,7 +168,7 @@ function generateImage() {
 
       context.fillStyle = '#fff';
       context.font = '30px Quicksand';
-      context.fillText(`${date}`, 250, 369);
+      context.fillText(`${formattedDate}`, 250, 369);
 
       // // Display the generated image
       // const imageContainer = document.getElementById('imageContainer');
@@ -188,7 +189,7 @@ function generateImage() {
       downloadButton.innerHTML = `<i class="bi bi-arrow-down"></i> Download Receipt`
       downloadButton.addEventListener('click', function () {
         downloadLink.click(); // Simulate a click on the hidden link
-        history.replaceState({}, document.title, '/');
+        history.replaceState({}, document.title, '/working.html');
         window.location.reload();
       });
 
